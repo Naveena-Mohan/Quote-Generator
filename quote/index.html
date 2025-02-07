@@ -25,7 +25,7 @@
         async function getquote(url){
             const response = await fetch(url,{
                 headers:{
-                    x-api-key : api_key,
+                    "x-api-key" : api_key,
                 }
             });
             const data= await response.json();
