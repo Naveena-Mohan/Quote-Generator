@@ -19,6 +19,7 @@
     <script>
         const quote = document.getElementById("quote");
         const author = document.getElementById("author");
+        
         const api_url = "https://api.api-ninjas.com/v1/quotes";
         const api_key = "hxD1e6cCUNpuEKy+eGiYZw==RuaBUQR3Xu5if9rb";
         async function getquote(url){
@@ -29,7 +30,7 @@
             });
             const data= await response.json();
            
-            quote.innerHTML= data[0].content;
+            quote.innerHTML= data[0].quote;
             author.innerHTML= data[0].author;
         }
         getquote(api_url);
