@@ -19,13 +19,18 @@
     <script>
         const quote = document.getElementById("quote");
         const author = document.getElementById("author");
-        const api_url ="https://zenquotes.io/api/random";
+        const api_url = "https://api.api-ninjas.com/v1/quotes";
+        const api_key = "hxD1e6cCUNpuEKy+eGiYZw==RuaBUQR3Xu5if9rb";
         async function getquote(url){
-            const response = await fetch(url);
-            var data= await response.json();
+            const response = await fetch(url,{
+                headers:{
+                    x-api-key : api_key,
+                }
+            });
+            const data= await response.json();
            
-            quote.innerHTML= data.content;
-            author.innerHTML= data.author;
+            quote.innerHTML= data[0].content;
+            author.innerHTML= data[0].author;
         }
         getquote(api_url);
         function tweet(){
